@@ -1,9 +1,18 @@
+import sys
 import re
 
 mylines = []
 dict = {}
 
-with open ('20200824.txt', 'rt', encoding="utf8") as myfile:
+arguments = len(sys.argv) - 1
+filepath = ""
+if arguments == 1:
+    filepath = sys.argv[1]
+else:
+    print("usar: extract_interactions.py %PATH%")
+    sys.exit()
+    
+with open (filepath, 'rt', encoding="utf8") as myfile:
     for myline in myfile:    
         m = re.search('<>', myline)
         m = re.search('^<v ([\w|\s]+)>', myline)
@@ -14,4 +23,4 @@ with open ('20200824.txt', 'rt', encoding="utf8") as myfile:
             else:
                 dict[interactor] = 1
 for key in dict:
-    print(key,dict[key])
+    print(key,",",dict[key])

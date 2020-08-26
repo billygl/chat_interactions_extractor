@@ -1,7 +1,8 @@
 # chat_interactions_extractor
 
 # DATA
-- Download from Blackboard
+- Download chat from Blackboard
+- Paste in data folder
 
 # USAGE
 ## RUN
